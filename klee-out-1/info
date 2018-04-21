@@ -1,0 +1,20 @@
+klee maze.bc
+PID: 2471
+Started: 2018-04-21 03:26:57
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2018-04-21 03:27:07
+Elapsed: 00:00:10
+KLEE: done: explored paths = 1
+KLEE: done: total queries = 0
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 0
+KLEE: done: query cex = 0
+
+KLEE: done: total instructions = 1382
+KLEE: done: completed paths = 1
+KLEE: done: generated tests = 1
