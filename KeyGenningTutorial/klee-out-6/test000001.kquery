@@ -1,0 +1,36 @@
+array input[4] : w32 -> w8 = symbolic
+(query [(Eq 253
+             (Xor w32 2147483648
+                      (Xor w32 1073741824
+                               (Xor w32 536870912
+                                        (Xor w32 268435456
+                                                 (Xor w32 134217728
+                                                          (Xor w32 67108864
+                                                                   (Xor w32 33554432
+                                                                            (Xor w32 16777216
+                                                                                     (Xor w32 8388608
+                                                                                              (Xor w32 4194304
+                                                                                                       (Xor w32 2097152
+                                                                                                                (Xor w32 1048576
+                                                                                                                         (Xor w32 524288
+                                                                                                                                  (Xor w32 262144
+                                                                                                                                           (Xor w32 131072
+                                                                                                                                                    (Xor w32 65536
+                                                                                                                                                             (Xor w32 32768
+                                                                                                                                                                      (Xor w32 16384
+                                                                                                                                                                               (Xor w32 8192
+                                                                                                                                                                                        (Xor w32 4096
+                                                                                                                                                                                                 (Xor w32 2048
+                                                                                                                                                                                                          (Xor w32 1024
+                                                                                                                                                                                                                   (Xor w32 512
+                                                                                                                                                                                                                            (Xor w32 256
+                                                                                                                                                                                                                                     (Xor w32 128
+                                                                                                                                                                                                                                              (Xor w32 64
+                                                                                                                                                                                                                                                       (Xor w32 32
+                                                                                                                                                                                                                                                                (Xor w32 16
+                                                                                                                                                                                                                                                                         (Xor w32 8
+                                                                                                                                                                                                                                                                                  (Xor w32 4
+                                                                                                                                                                                                                                                                                           (Xor w32 2
+                                                                                                                                                                                                                                                                                                    (Xor w32 1
+                                                                                                                                                                                                                                                                                                             (ReadLSB w32 0 input))))))))))))))))))))))))))))))))))]
+        false)

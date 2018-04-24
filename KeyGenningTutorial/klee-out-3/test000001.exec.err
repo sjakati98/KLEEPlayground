@@ -1,0 +1,6 @@
+Error: external call with symbolic argument: magic_computation
+File: /home/klee/KLEEPlayground/KeyGenningTutorial/magic_computation.c
+Line: 10
+assembly.ll line: 33
+Stack: 
+	#000000033 in main (argc=1, argv=54477456) at /home/klee/KLEEPlayground/KeyGenningTutorial/magic_computation.c:10

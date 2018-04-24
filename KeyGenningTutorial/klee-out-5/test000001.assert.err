@@ -1,0 +1,6 @@
+Error: ASSERTION FAIL: 0
+File: /home/klee/KLEEPlayground/KeyGenningTutorial/magic_computation.c
+Line: 12
+assembly.ll line: 40
+Stack: 
+	#000000040 in main (argc=1, argv=25436592) at /home/klee/KLEEPlayground/KeyGenningTutorial/magic_computation.c:12

@@ -1,0 +1,3 @@
+KLEE: Using STP solver backend
+KLEE: ERROR: /home/klee/KLEEPlayground/KeyGenningTutorial/magic_computation.c:12: ASSERTION FAIL: 0
+KLEE: NOTE: now ignoring this error at this location
