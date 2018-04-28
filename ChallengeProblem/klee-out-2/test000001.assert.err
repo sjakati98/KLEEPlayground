@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: param * input
+File: /home/klee/KLEEPlayground/ChallengeProblem/function.c
+Line: 21
+assembly.ll line: 83
+Stack: 
+	#000000083 in f (input, param=2) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:21
+	#100000036 in main (argc=1, argv=51327088) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:10

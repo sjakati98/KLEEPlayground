@@ -38,12 +38,41 @@ object    0: name: b'input'
 object    0: size: 4
 object    0: data: 10
 ```
-A more illustrative example is shown below:
+Here's a more relevant example:
 
 ```
+int main(int argc, char* argv[]){
+  int input, param, result;
+  klee_make_symbolic(&input, sizeof(input), "input");
+  param = 2;
+  result = f(input, param);
+  return result;
+}
 
+
+int f(int input, int param){
+  // the PReLU activation function                                                                                                                                                                          
+  if(input < 0)
+    return param * input;
+  else if(input > 0)
+    return input;
+  klee_assert(param * input);
+  return param * input;
+}
 ```
+One problem that can arise is having a zero input from a convolutional layer. Here, KLEE has again found the breaking case:
+```
+KLEE: ERROR: /home/klee/KLEEPlayground/ChallengeProblem/function.c:21: ASSERTION FAIL: param * input
+KLEE: NOTE: now ignoring this error at this location
 
+KLEE: done: total instructions = 50
+KLEE: done: completed paths = 3
+KLEE: done: generated tests = 3
+ ---
+object    0: name: b'input'
+object    0: size: 4
+object    0: data: 0
+```
 ---
 ## Floats
 ---
