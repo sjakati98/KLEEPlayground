@@ -1,0 +1,21 @@
+klee function.bc
+PID: 233
+Started: 2018-04-28 05:55:42
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2018-04-28 05:55:42
+Elapsed: 00:00:00
+KLEE: done: explored paths = 5
+KLEE: done: avg. constructs per query = 39
+KLEE: done: total queries = 8
+KLEE: done: valid queries = 2
+KLEE: done: invalid queries = 6
+KLEE: done: query cex = 8
+
+KLEE: done: total instructions = 81
+KLEE: done: completed paths = 5
+KLEE: done: generated tests = 5

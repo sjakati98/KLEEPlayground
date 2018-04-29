@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: direction
+File: /home/klee/KLEEPlayground/ChallengeProblem/function.c
+Line: 38
+assembly.ll line: 160
+Stack: 
+	#000000160 in f2 (time, location=2) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:38
+	#100000038 in main (argc=1, argv=40194944) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:10

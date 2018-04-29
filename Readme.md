@@ -73,8 +73,35 @@ object    0: name: b'input'
 object    0: size: 4
 object    0: data: 0
 ```
+
+Finally, here is a function that takes in randomized input and synthesized params:
+```
+int f2(int input, int param){
+    // simple direction simulator                                                                                                                                                                              
+    // input is current heading, and param is some external sensor
+    int direction = input;
+    if (param == 0)
+        return direction;
+    else if (param > 0){
+        direction = direction * (param / 2);
+        return direction;
+    }
+    else{ // param < 0
+        direction = 0
+        return direction;
+    }
+}
+```
+Upon further inspection, we see that KLEE uses various values to test the function; mainly 0, the integer mininmum, and one randomized postiive integer. Now we may try making external function calls:
+```
+// code here
+```
+
 ---
 ## Floats
+
+
+
 ---
 ## Constraints
 
@@ -82,4 +109,6 @@ object    0: data: 0
 - Hard constraints are those which must be satisfied, regardless of extraneous circumstances
 - Soft constraints are those which should be satisfied, but it is not required for them to be so
 
- 
+In KLEE, these concepts come to fruition through the intrinsic functions: ```klee_assume(condition)``` representing hard constraints and ```klee_prefer_cex(object, condition)``` representing soft constraints. This means that KLEE does support soft constraints; according to the documentation provided when ["KLEE finds paths that conflict with the ```klee_prefer_cex``` condition, it will ignore the preferece."](http://klee.github.io/docs/intrinsics/)
+
+The question of encoding soft constraints with hard constraints can be answered using the ```klee_assume``` condition. 

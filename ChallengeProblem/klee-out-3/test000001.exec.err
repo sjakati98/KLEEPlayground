@@ -1,0 +1,7 @@
+Error: external call with symbolic argument: klee_asert
+File: /home/klee/KLEEPlayground/ChallengeProblem/function.c
+Line: 35
+assembly.ll line: 149
+Stack: 
+	#000000149 in f2 (time, location=2) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:35
+	#100000036 in main (argc=1, argv=31373296) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:10

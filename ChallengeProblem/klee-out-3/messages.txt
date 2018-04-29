@@ -1,0 +1,3 @@
+KLEE: Using STP solver backend
+KLEE: ERROR: /home/klee/KLEEPlayground/ChallengeProblem/function.c:35: external call with symbolic argument: klee_asert
+KLEE: NOTE: now ignoring this error at this location

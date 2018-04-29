@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: time
+File: /home/klee/KLEEPlayground/ChallengeProblem/function.c
+Line: 35
+assembly.ll line: 155
+Stack: 
+	#000000155 in f2 (time, location=2) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:35
+	#100000038 in main (argc=1, argv=45892080) at /home/klee/KLEEPlayground/ChallengeProblem/function.c:10
