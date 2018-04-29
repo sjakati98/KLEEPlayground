@@ -38,7 +38,7 @@ object    0: name: b'input'
 object    0: size: 4
 object    0: data: 10
 ```
-Here's a more relevant example:
+Here's another example:
 
 ```
 int main(int argc, char* argv[]){
