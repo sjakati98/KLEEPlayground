@@ -1,0 +1,21 @@
+klee code_snip_one.bc
+PID: 54
+Started: 2018-05-17 02:40:45
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2018-05-17 02:40:45
+Elapsed: 00:00:00
+KLEE: done: explored paths = 3
+KLEE: done: avg. constructs per query = 14
+KLEE: done: total queries = 3
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 3
+KLEE: done: query cex = 3
+
+KLEE: done: total instructions = 27
+KLEE: done: completed paths = 3
+KLEE: done: generated tests = 3

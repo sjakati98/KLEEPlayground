@@ -20,6 +20,6 @@ BOOL check_arg(int x){
     return TRUE;
   else if (x < 10)
     return FALSE;
-  klee_assert(FALSE); // if you're reading this it's too late
+  klee_assert(TRUE);
   return FALSE;
 }

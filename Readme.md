@@ -16,7 +16,7 @@ BOOL check_arg(int x){
     return TRUE;
   else if (x < 10)
     return FALSE;
-  klee_assert(FALSE);
+  klee_assert(FALSE); //This line indicates that some input is outside of the "boundaries" within the conditionals
   return FALSE;
 }
 ```
@@ -56,7 +56,7 @@ int f(int input, int param){
     return param * input;
   else if(input > 0)
     return input;
-  klee_assert(param * input);
+  klee_assert(0); // Again, execution should not occur outside the conditionals
   return param * input;
 }
 ```
@@ -90,6 +90,9 @@ int f2(int input, int param){
         direction = 0
         return direction;
     }
+
+    klee_assert(0);
+    return 0;
 }
 ```
 Upon further inspection, we see that KLEE uses various values to test the function; mainly 0, the integer mininmum, and one randomized postiive integer. Now we may try making external function calls:
@@ -109,6 +112,6 @@ Upon further inspection, we see that KLEE uses various values to test the functi
 - Hard constraints are those which must be satisfied, regardless of extraneous circumstances
 - Soft constraints are those which should be satisfied, but it is not required for them to be so
 
-In KLEE, these concepts come to fruition through the intrinsic functions: ```klee_assume(condition)``` representing hard constraints and ```klee_prefer_cex(object, condition)``` representing soft constraints. This means that KLEE does support soft constraints; according to the documentation provided when ["KLEE finds paths that conflict with the ```klee_prefer_cex``` condition, it will ignore the preferece."](http://klee.github.io/docs/intrinsics/)
+In KLEE, these concepts come to fruition through the intrinsic functions: ```klee_assume(condition)``` representing hard constraints and ```klee_prefer_cex(object, condition)``` representing soft constraints. This means that KLEE does support soft constraints; according to the documentation provided when ["KLEE finds paths that conflict with the ```klee_prefer_cex``` condition, it will ignore the preference."](http://klee.github.io/docs/intrinsics/)
 
 The question of encoding soft constraints with hard constraints can be answered using the ```klee_assume``` condition. 

@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: FALSE
+File: /home/klee/KLEEPlayground/KeyGenningTutorial/code_snip_one.c
+Line: 23
+assembly.ll line: 60
+Stack: 
+	#000000060 in check_arg (x) at /home/klee/KLEEPlayground/KeyGenningTutorial/code_snip_one.c:23
+	#100000028 in main () at /home/klee/KLEEPlayground/KeyGenningTutorial/code_snip_one.c:15
