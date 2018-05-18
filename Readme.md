@@ -38,29 +38,6 @@ object    0: name: b'input'
 object    0: size: 4
 object    0: data: 10
 ```
-Here's another example:
-
-```
-int main(int argc, char* argv[]){
-  int input, param, result;
-  klee_make_symbolic(&input, sizeof(input), "input");
-  param = 2;
-  result = f(input, param);
-  return result;
-}
-
-
-int f(int input, int param){
-  // the PReLU activation function                                                                                                                                                                          
-  if(input < 0)
-    return param * input;
-  else if(input > 0)
-    return input;
-  klee_assert(0); // Again, execution should not occur outside the conditionals
-  return param * input;
-}
-```
-One problem that can arise is having a zero input from a convolutional layer. Here, KLEE has again found the breaking case:
 ```
 KLEE: ERROR: /home/klee/KLEEPlayground/ChallengeProblem/function.c:21: ASSERTION FAIL: param * input
 KLEE: NOTE: now ignoring this error at this location
@@ -76,26 +53,37 @@ object    0: data: 0
 
 Finally, here is a function that takes in randomized input and synthesized params:
 ```
-int f2(int input, int param){
-    // simple direction simulator                                                                                                                                                                              
-    // input is current heading, and param is some external sensor
-    int direction = input;
-    if (param == 0)
-        return direction;
-    else if (param > 0){
-        direction = direction * (param / 2);
-        return direction;
-    }
-    else{ // param < 0
-        direction = 0
-        return direction;
-    }
-
-    klee_assert(0);
-    return 0;
+int main(){
+  int input, param;
+  klee_make_symbolic(&input, sizeof(input), "input");
+  klee_make_symbolic(&param, sizeof(param), "param");
+  return funky_math(input, param);
 }
+
+
+int funky_math(int input, int param){
+  int result = 0;
+  for (int i = 0; i < param / 2; ++i)
+    result = result + input + (i << 2);
+  if (result == 73)
+    klee_assert(0); // We get the right answer                                                       
+  return result;
+}
+
 ```
-Upon further inspection, we see that KLEE uses various values to test the function; mainly 0, the integer mininmum, and one randomized postiive integer. Now we may try making external function calls:
+
+An interesting note about this example is that KLEE seems to find a working example within the first two runs of execution. However, an enormous number of runs are made following that; I halted the process after the 421st test. The output from the KTest-Tool for the correct run is shown below:
+```
+num objects: 2
+object    0: name: b'input'
+object    0: size: 4
+object    0: data: 73
+object    1: name: b'param'
+object    1: size: 4
+object    1: data: 2
+```
+
+Now we may try making external function calls:
 ```
 // code here
 ```
@@ -103,7 +91,12 @@ Upon further inspection, we see that KLEE uses various values to test the functi
 ---
 ## Floats
 
+Blindly substituting ```float``` for ```int``` when using KLEE will result in the following warning:
+```
+KLEE: WARNING ONCE: silently concretizing (reason: floating point) expression (ReadLSB w32 0 input) to value 0 (/home/klee/KLEEPlayground/ChallengeProblem/right_answer.c:9)
+```
 
+The reasoning behind this is, as stated in the paper [*"Floating-Point Symbolic Execution: A Case Study in N-Version Programming"*](https://srg.doc.ic.ac.uk/files/papers/klee-n-version-fp-ase-17.pdf), that no suitable solver was available during time of development. Instead, KLEE will concretize arguments, rendering them a different datatype than was initially intended. This, depending on the application, may negate any benefits of using KLEE. The [KLEE-Float](https://srg.doc.ic.ac.uk/projects/klee-float/) project is an effort to use floating point numbers within KLEE.   
 
 ---
 ## Constraints
