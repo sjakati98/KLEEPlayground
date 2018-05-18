@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: 0
+File: /home/klee/KLEEPlayground/ChallengeProblem/right_answer.c
+Line: 18
+assembly.ll line: 83
+Stack: 
+	#000000083 in funky_math (input, param) at /home/klee/KLEEPlayground/ChallengeProblem/right_answer.c:18
+	#100000033 in main () at /home/klee/KLEEPlayground/ChallengeProblem/right_answer.c:9

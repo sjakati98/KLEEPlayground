@@ -1,0 +1,20 @@
+klee --optimize --libc=uclibc ./external_function.bc
+PID: 1389
+Started: 2018-05-18 22:25:09
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2018-05-18 22:25:09
+Elapsed: 00:00:00
+KLEE: done: explored paths = 1
+KLEE: done: total queries = 0
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 0
+KLEE: done: query cex = 0
+
+KLEE: done: total instructions = 1882
+KLEE: done: completed paths = 1
+KLEE: done: generated tests = 1

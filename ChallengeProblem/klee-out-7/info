@@ -1,0 +1,21 @@
+klee right_answer.bc
+PID: 132
+Started: 2018-05-17 03:42:26
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2018-05-17 03:46:55
+Elapsed: 00:04:29
+KLEE: done: explored paths = 629
+KLEE: done: avg. constructs per query = 1686
+KLEE: done: total queries = 838
+KLEE: done: valid queries = 209
+KLEE: done: invalid queries = 629
+KLEE: done: query cex = 838
+
+KLEE: done: total instructions = 13203
+KLEE: done: completed paths = 629
+KLEE: done: generated tests = 421

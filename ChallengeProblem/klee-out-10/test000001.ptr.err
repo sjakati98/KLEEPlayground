@@ -1,0 +1,14 @@
+Error: memory error: out of bound pointer
+File: /home/klee/KLEEPlayground/ChallengeProblem/external_function.c
+Line: 28
+assembly.ll line: 140
+Stack: 
+	#000000140 in external_function (values=45225392, l=0, r=8, elem) at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:28
+	#100000062 in primary_function_1 (values=45225392, elem) at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:39
+	#200000038 in main () at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:17
+Info: 
+	address: 45225376
+	next: object at 45225392 of size 32
+		MO24[32] allocated at main():  %values = alloca [8 x i32], align 16
+	prev: object at 45217408 of size 5
+		MO23[5] allocated at global:.str28

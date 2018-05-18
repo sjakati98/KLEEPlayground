@@ -1,0 +1,6 @@
+KLEE: WARNING: undefined reference to function: fcntl
+KLEE: WARNING: undefined reference to function: fstat
+KLEE: WARNING: undefined reference to function: ioctl
+KLEE: WARNING: undefined reference to function: klee_assert
+KLEE: WARNING: undefined reference to function: open
+KLEE: WARNING ONCE: calling external: ioctl(0, 21505, 29835600) at /home/klee/klee_build/klee-uclibc/libc/termios/isatty.c:30

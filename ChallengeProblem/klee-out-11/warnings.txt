@@ -1,0 +1,2 @@
+KLEE: WARNING: undefined reference to function: atoi
+KLEE: WARNING ONCE: calling external: atoi(47002880) at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:56

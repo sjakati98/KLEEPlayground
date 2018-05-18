@@ -1,0 +1,6 @@
+Error: ASSERTION FAIL: 0
+File: /home/klee/KLEEPlayground/ChallengeProblem/external_function.c
+Line: 58
+assembly.ll line: 500
+Stack: 
+	#000000500 in main (=1, =50411888) at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:58

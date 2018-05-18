@@ -1,0 +1,13 @@
+Error: memory error: out of bound pointer
+File: /home/klee/klee_build/klee-uclibc/libc/stdlib/stdlib.c
+Line: 559
+assembly.ll line: 133
+Stack: 
+	#000000133 in _stdlib_strto_l (str=40873856, endptr=0, base=10) at /home/klee/klee_build/klee-uclibc/libc/stdlib/stdlib.c:559
+	#100000494 in main (=1, =50411888) at /home/klee/klee_build/klee-uclibc/libc/stdlib/stdlib.c:332
+Info: 
+	address: 40873860
+	next: object at 41683712 of size 32
+		MO20[32] allocated at main():  %elem.i.i = alloca i32, align 4
+	prev: object at 40873856 of size 4
+		MO53[4] allocated at main():  %input.i.i = alloca [4 x i8], align 1

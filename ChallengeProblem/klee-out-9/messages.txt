@@ -1,0 +1,5 @@
+KLEE: Using STP solver backend
+KLEE: ERROR: /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:41: ASSERTION FAIL: 0
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:28: memory error: out of bound pointer
+KLEE: NOTE: now ignoring this error at this location

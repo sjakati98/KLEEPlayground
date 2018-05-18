@@ -1,0 +1,7 @@
+Error: ASSERTION FAIL: 0
+File: /home/klee/KLEEPlayground/ChallengeProblem/external_function.c
+Line: 41
+assembly.ll line: 69
+Stack: 
+	#000000069 in primary_function_1 (values=51471616, elem) at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:41
+	#100000038 in main () at /home/klee/KLEEPlayground/ChallengeProblem/external_function.c:17

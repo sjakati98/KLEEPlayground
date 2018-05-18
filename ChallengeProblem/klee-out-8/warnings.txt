@@ -1,0 +1,1 @@
+KLEE: WARNING ONCE: silently concretizing (reason: floating point) expression (ReadLSB w32 0 input) to value 0 (/home/klee/KLEEPlayground/ChallengeProblem/right_answer.c:9)

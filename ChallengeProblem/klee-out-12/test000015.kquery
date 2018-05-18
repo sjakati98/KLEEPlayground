@@ -1,0 +1,14 @@
+array input[4] : w32 -> w8 = symbolic
+(query [(Eq 43 (Read w8 0 input))
+         (Ult N0:(Add w8 208 (Read w8 1 input))
+              10)
+         (Ult N1:(Add w8 208 (Read w8 2 input))
+              10)
+         (Eq false
+             (Ult (Add w8 208 N2:(Read w8 3 input))
+                  10))
+         (Eq false (Slt 64 N2))
+         (Eq 42
+             (Extract w32 0 (Add w64 (ZExt w64 N1)
+                                     (Mul w64 10 (ZExt w64 N0)))))]
+        false)
