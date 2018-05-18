@@ -38,18 +38,7 @@ object    0: name: b'input'
 object    0: size: 4
 object    0: data: 10
 ```
-```
-KLEE: ERROR: /home/klee/KLEEPlayground/ChallengeProblem/function.c:21: ASSERTION FAIL: param * input
-KLEE: NOTE: now ignoring this error at this location
 
-KLEE: done: total instructions = 50
-KLEE: done: completed paths = 3
-KLEE: done: generated tests = 3
- ---
-object    0: name: b'input'
-object    0: size: 4
-object    0: data: 0
-```
 
 Finally, here is a function that takes in randomized input and synthesized params:
 ```
@@ -85,7 +74,20 @@ object    1: data: 2
 
 Now we may try making external function calls:
 ```
-// code here
+int primary_function_2(char* input){
+  /*                                                                                                 
+   I have taken this function from the following tutorial: https://doar-e.github.io/blog/2015/08/18/\
+keygenning-with-klee/                                                                                
+                                                                                                     
+   This tutorial is extremely helpful in understanding the process of using functions outside the standard C library. Speciifically the ```atoi``` function. The differce in invoking this function lies in the way that the KLEE command line tool is used as opposed to any changes in the code.           
+   */
+
+  int result;
+  result = atoi(input);
+  if(result == 42)
+    klee_assert(0);
+  return result;
+}
 ```
 
 ---
@@ -96,7 +98,7 @@ Blindly substituting ```float``` for ```int``` when using KLEE will result in th
 KLEE: WARNING ONCE: silently concretizing (reason: floating point) expression (ReadLSB w32 0 input) to value 0 (/home/klee/KLEEPlayground/ChallengeProblem/right_answer.c:9)
 ```
 
-The reasoning behind this is, as stated in the paper [*"Floating-Point Symbolic Execution: A Case Study in N-Version Programming"*](https://srg.doc.ic.ac.uk/files/papers/klee-n-version-fp-ase-17.pdf), that no suitable solver was available during time of development. Instead, KLEE will concretize arguments, rendering them a different datatype than was initially intended. This, depending on the application, may negate any benefits of using KLEE. The [KLEE-Float](https://srg.doc.ic.ac.uk/projects/klee-float/) project is an effort to use floating point numbers within KLEE.   
+The reasoning behind this is, as stated in the paper [*"Floating-Point Symbolic Execution: A Case Study in N-Version Programming"*](https://srg.doc.ic.ac.uk/files/papers/klee-n-version-fp-ase-17.pdf), that no suitable solver was available during time of development. Instead, KLEE will concretize arguments, rendering them a different datatype than was initially intended. This, depending on the application, may negate any benefits of using KLEE. The [KLEE-Float](https://srg.doc.ic.ac.uk/projects/klee-float/) project is an effort to use floating point numbers within KLEE. (I am still trying to get this to build on my machine, I will update when I do.)
 
 ---
 ## Constraints
